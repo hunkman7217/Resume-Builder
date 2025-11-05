@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+##Resume Builder – Almabetter Capstone Project..
 
-## Getting Started
+A web-based Resume Builder application built using Next.js and Tailwind CSS.
+This project allows users to easily create, preview, and download professional resumes by filling out a simple form divided into multiple sections — Personal Information, Education, Experience, and Skills.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+##Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Step-by-step multi-section form (Personal, Education, Experience, Skills)
+- Input validation for required fields.
+- Auto preview of entered data
+- Resume download option using html2canvas and jsPDF
+- Fully responsive UI for all screen sizes
+- Live deployed on Vercel
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+##Project Structure
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+/components     → Reusable components (FormNavigator, Buttons, etc.)
+/pages          → Next.js pages (Home, Resume, Form)
+/pages/form     → Form sections (Personal.js, Education.js, Experience.js, Skills.js)
+/public         → Static assets and icons
+/styles         → Global and Tailwind CSS setup
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+##Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Frontend: Next.js (React Framework)
+- Styling: Tailwind CSS, Material ui
+- PDF Export: html2canvas, jsPDF
+- Deployment: Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##Installation & Setup
 
-## Deploy on Vercel
+# Clone the repository
+git clone https://github.com/hunkman7217/Resume-Builder.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Install dependencies
+- npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+# Run the development server
+- npm run dev
+
+# Visit in browser
+- http://localhost:3000
+
+
+##Live Demo
+
+- https://resume-builder-sable-ten.vercel.app/
+
+##Video Demo
+
+- 
+
+##Author
+
+Name : Rohit Kumar
+Role : Frontend Development
+Project : Almabetter's Frontend Capstone project 
+
+
+
+
+
+
+
