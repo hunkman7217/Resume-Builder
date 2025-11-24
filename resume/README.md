@@ -1,40 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Resume Builder Module
 
-## Getting Started
+This folder contains all the core logic, pages, components, and templates required to build and preview a dynamic resume in real time.
+The module is fully powered by **Next.js**, **Redux Toolkit**, and **TailwindCSS**, offering smooth navigation and real-time updates while filling the resume form.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Folder Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+resume/
+│
+├── pages/
+│ ├── Personal.js
+│ ├── Education.js
+│ ├── Experience.js
+│ ├── Skills.js
+│ └── Preview.js
+│
+├── components/
+│ └── FormNavigate.js
+│
+├── templates/
+│ ├── TemplateOne.js
+│ ├── TemplateTwo.js
+│ └── TemplateThree.js
+│
+├── redux/
+│ ├── resumeSlice.js
+│ ├── templateSlice.js
+│ └── store.js
+│
+└── README.md
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+##  Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The **Resume Builder** allows users to fill out different sections of a resume:
+- Personal Information  
+- Education  
+- Work Experience  
+- Skills  
 
-## Learn More
+All data is stored in **Redux**, allowing seamless navigation between form sections without losing progress.
 
-To learn more about Next.js, take a look at the following resources:
+The user can also **choose a resume template** and preview the final result in real time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Key Components
 
-## Deploy on Vercel
+### **1. FormNavigate.js**
+- Controls navigation between form sections.
+- Uses `router.push()` with shallow routing to avoid page refresh.
+- Loads the correct form component based on the selected tab.
+  
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##  Form Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### **Personal.js**
+Collects user details like name, email, phone, DOB, and summary.
+
+### **Education.js**
+Handles fields like degree, institution, and passing year.
+
+### **Experience.js**
+Captures work experience such as position, company, duration, and description.
+
+### **Skills.js**
+Allows users to input skills with validation and stores them via Redux.
+
+---
+
+##  Resume Templates
+
+Located inside `templates/` folder:
+
+### **TemplateOne.js**
+- Yellow accent theme  
+- Minimal and clean layout  
+
+### **TemplateTwo.js**
+- Cyan header design  
+- Rounded and modern visual style  
+
+### **TemplateThree.js**
+- Pink premium theme  
+- Great for creative resumes  
+
+All templates receive real-time data from Redux and display fallback dummy data when fields are empty.
+
+---
+
+## 🗄 Redux Structure
+
+### **resumeSlice.js**
+Stores all form data:
+- personal  
+- education  
+- experience  
+- skills  
+
+### **templateSlice.js**
+Stores `selectedTemplate` for resume preview.
+
+### **store.js**
+The central Redux store combining all slices.
+
+---
+
+## ▶️ How It Works
+
+1. User fills each form section.  
+2. Data is stored in Redux using `dispatch`.  
+3. `FormNavigate.js` lets the user switch between sections easily.  
+4. Preview page displays final resume using the selected template.  
+5. User can download resume after completion (if download feature added).
+
+---
+
+##  Tech Stack
+
+- **Next.js**
+- **React Redux / Redux Toolkit**
+- **TailwindCSS**
+- **Material UI (Buttons)**
+
+---
+
+##  Features
+
+- Real-time form updates
+- Easy navigation between form sections
+- Fully dynamic templates
+- Validation included in all forms
+- Scalable and readable code with comments

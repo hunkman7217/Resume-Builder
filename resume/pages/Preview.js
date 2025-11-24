@@ -8,38 +8,49 @@ import TemplateOne from "@/templates/TemplateOne";
 import TemplateTwo from "@/templates/TemplateTwo";
 import TemplateThree from "@/templates/TemplateThree";
 
+/**
+ * Preview Page
+ * --------------------------------------------
+ * Shows the selected resume template before download.
+ * Features:
+ * - Live resume preview
+ * - Convert HTML to Image → PDF (high quality)
+ * - Save resume to localStorage
+ */
+
 export default function Preview() {
   const resumeData = useSelector((state) => state.resume);
   const selectedTemplate = useSelector((state) => state.template.selectedTemplate);
-  const pdfRef = useRef();
+  const pdfRef = useRef(); // Reference to the preview DOM element
 
-  // ✅ Choose which template to render
+  /**
+   * Returns the correct resume template for preview
+   */
   const getTemplateComponent = () => {
     switch (selectedTemplate) {
-      case "template1":
-        return <TemplateOne data={resumeData} />;
-      case "template2":
-        return <TemplateTwo data={resumeData} />;
-      case "template3":
-        return <TemplateThree data={resumeData} />;
-      default:
-        return <TemplateOne data={resumeData} />;
+      case "template1": return <TemplateOne data={resumeData} />;
+      case "template2": return <TemplateTwo data={resumeData} />;
+      case "template3": return <TemplateThree data={resumeData} />;
+      default: return <TemplateOne data={resumeData} />;
     }
   };
 
-  // ✅ HTML to Image + jsPDF download
+  /**
+   * Converts preview to high-resolution PNG → then writes PDF
+   * Also saves resume data (auto-save) to localStorage
+   */
   const downloadPDF = async () => {
     const element = pdfRef.current;
     if (!element) return;
 
-    // Small delay to ensure the DOM is fully painted
+    // Delay ensures styles + images fully render
     await new Promise((r) => setTimeout(r, 300));
 
     try {
-      // Use html-to-image for perfect color + shadow + Tailwind CSS support
+      // Convert HTML → PNG (supports Tailwind, shadows, colors)
       const dataUrl = await htmlToImage.toPng(element, {
         backgroundColor: "#ffffff",
-        pixelRatio: 3, // Higher = sharper image
+        pixelRatio: 3,
         cacheBust: true,
       });
 
@@ -57,7 +68,7 @@ export default function Preview() {
         pdf.save(`${resumeData.personal?.name || "My_Resume"}.pdf`);
       };
 
-      // ✅ Save resume data to localStorage
+      // Save resume data in localStorage
       const existing = JSON.parse(localStorage.getItem("savedResumes")) || [];
       const newEntry = {
         id: Date.now(),
@@ -66,6 +77,7 @@ export default function Preview() {
         data: resumeData,
       };
       localStorage.setItem("savedResumes", JSON.stringify([...existing, newEntry]));
+
     } catch (error) {
       console.error("Error generating PDF:", error);
       alert("There was an error generating your PDF. Please try again.");
@@ -75,22 +87,21 @@ export default function Preview() {
   return (
     <>
       <HomePage />
+
       <h1 className="text-4xl text-center mt-10 font-bold">Preview Page</h1>
 
       <div className="flex flex-col items-center justify-center p-5">
-        {/* ✅ This container will be captured */}
+        
+        {/* Resume Preview Container */}
         <div
           ref={pdfRef}
-          className="bg-white shadow-2xl rounded-lg "
-          style={{
-            overflow: "visible",
-            
-          
-          }}
+          className="bg-white shadow-2xl rounded-lg"
+          style={{ overflow: "visible" }}
         >
           {getTemplateComponent()}
         </div>
 
+        {/* Download Button */}
         <Button
           variant="contained"
           onClick={downloadPDF}
