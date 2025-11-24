@@ -1,11 +1,11 @@
-# Resume Builder Module
+# 📝 Resume Builder Module
 
 This folder contains all the core logic, pages, components, and templates required to build and preview a dynamic resume in real time.
 The module is fully powered by **Next.js**, **Redux Toolkit**, and **TailwindCSS**, offering smooth navigation and real-time updates while filling the resume form.
 
 ---
 
-## Folder Structure
+## 📂 Folder Structure
 
 resume/
 │
@@ -34,7 +34,7 @@ resume/
 
 ---
 
-##  Overview
+## 🚀 Overview
 
 The **Resume Builder** allows users to fill out different sections of a resume:
 - Personal Information  
@@ -48,7 +48,7 @@ The user can also **choose a resume template** and preview the final result in r
 
 ---
 
-##  Key Components
+## 🧩 Key Components
 
 ### **1. FormNavigate.js**
 - Controls navigation between form sections.
@@ -57,7 +57,7 @@ The user can also **choose a resume template** and preview the final result in r
   
 ---
 
-##  Form Pages
+## 📄 Form Pages
 
 ### **Personal.js**
 Collects user details like name, email, phone, DOB, and summary.
@@ -73,7 +73,7 @@ Allows users to input skills with validation and stores them via Redux.
 
 ---
 
-##  Resume Templates
+## 🎨 Resume Templates
 
 Located inside `templates/` folder:
 
@@ -120,7 +120,7 @@ The central Redux store combining all slices.
 
 ---
 
-##  Tech Stack
+## 📌 Tech Stack
 
 - **Next.js**
 - **React Redux / Redux Toolkit**
@@ -129,10 +129,16 @@ The central Redux store combining all slices.
 
 ---
 
-##  Features
+## ✔️ Features
 
 - Real-time form updates
 - Easy navigation between form sections
 - Fully dynamic templates
 - Validation included in all forms
 - Scalable and readable code with comments
+
+
+
+
+
+
