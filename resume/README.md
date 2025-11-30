@@ -116,7 +116,7 @@ The central Redux store combining all slices.
 2. Data is stored in Redux using `dispatch`.  
 3. `FormNavigate.js` lets the user switch between sections easily.  
 4. Preview page displays final resume using the selected template.  
-5. User can download resume after completion (if download feature added).
+5. User can download resume after completion.
 
 ---
 
