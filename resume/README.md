@@ -93,7 +93,7 @@ All templates receive real-time data from Redux and display fallback dummy data 
 
 ---
 
-## 🗄 Redux Structure
+##  Redux Structure
 
 ### **resumeSlice.js**
 Stores all form data:
@@ -110,7 +110,7 @@ The central Redux store combining all slices.
 
 ---
 
-## ▶️ How It Works
+## How It Works
 
 1. User fills each form section.  
 2. Data is stored in Redux using `dispatch`.  
